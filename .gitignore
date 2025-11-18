@@ -29,3 +29,9 @@ build/
 # Temp files
 tmp/
 temp/
+
+# 忽略 uploads 文件夹里的所有内容
+uploads/*
+
+# 但不要忽略 uploads 文件夹本身
+!uploads/.gitkeep
