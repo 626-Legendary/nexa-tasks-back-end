@@ -13,16 +13,15 @@ const app = express();
 
 // ----------------- CORS CONFIG -----------------
 const allowedOrigins = [
-  process.env.CLIENT_URL,       // 生产环境前端，例如：https://nexa-tasks.vercel.app
-  "http://localhost:5173",      // 本地 Vite 前端
-  "http://localhost:3000",      // 预留本地 React 端口
+  process.env.CLIENT_URL,       // 生产前端，比如：https://nexa-tasks.vercel.app
+  "http://localhost:5173",      // 本地 Vite
+  "http://localhost:3000",      // 预留本地 React
 ];
 
-// CORS 中间件
 app.use(
   cors({
     origin: function (origin, callback) {
-      // 非浏览器环境（如 Postman）没有 origin，直接放行
+      // Postman、curl 等没有 origin 的请求，直接放行
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
@@ -38,8 +37,7 @@ app.use(
   })
 );
 
-// 处理预检请求
-app.options("*", cors());
+
 
 // ----------------- CONNECT DATABASE -----------------
 connectDB();
