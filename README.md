@@ -1,0 +1,3 @@
+📦 Dockerlization Update
+
+This update introduces full Dockerlization for the Nexa Tasks backend. The entire Node.js/Express server can now be built and deployed as a lightweight Docker container, making it easier to run on Raspberry Pi, cloud servers, or any environment that supports Docker. By isolating dependencies and runtime logic inside the image, the backend becomes more stable, portable, and consistent across development and production. With this change, deployment now requires only two steps — docker build and docker run — simplifying the workflow and eliminating environment-specific issues.
